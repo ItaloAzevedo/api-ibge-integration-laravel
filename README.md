@@ -12,54 +12,65 @@
   <li>Laravel 9.52.9</li>
 </ul>
 
+<h2>Layout dos Dados da API</h2>
+
+<p>Para entender a estrutura e os formatos dos dados retornados pela API de Pedidos com Integração do IBGE, consulte o <a href="https://we.tl/t-zJyY7Mnf0R">Layout dos Dados</a>.</p>
+
+<p>O Layout dos Dados fornece informações detalhadas sobre os campos, tipos de dados e exemplos de uso para cada endpoint da API.</p>
+
+<p>Utilize o Layout dos Dados como referência ao desenvolver e consumir os endpoints da API para garantir a correta manipulação dos dados retornados.</p>
+
 <h2>Instalação</h2>
 
 <ol>
   <li>Faça o clone deste repositório para o seu ambiente local.</li>
   <li>Navegue até a pasta do projeto e execute o comando <code>composer install</code> para instalar as dependências.</li>
-  <li>Renomeie o arquivo <code>.env.example</code> para <code>.env</code> e configure as informações do banco de dados.</li>
+  <li>Renomeie o arquivo <code>.env.example</code> para <code>.env</code> e configure as informações do banco de dados conforme a configuração presente na seção <a href="https://github.com/ItaloAzevedo/api-ibge-integration-laravel/edit/master/README.md#configura%C3%A7%C3%A3o-do-banco-de-dados"><b>Configuração do Banco de dados</b></a></li>
   <li>Execute o comando <code>php artisan key:generate</code> para gerar a chave da aplicação.</li>
   
 </ol>
 
 <h2>Configuração do Banco de Dados</h2>
 
-<p>A API oferece duas opções de configuração para o banco de dados:</p>
-
-<h3>Opção 1: Banco de Dados Existente</h3>
-
-<p>Se você já possui um banco de dados MySQL configurado, siga as etapas abaixo:</p>
+<p>Antes de usar a API de Pedidos com Integração do IBGE, você precisa configurar o banco de dados. Siga as etapas abaixo:</p>
 
 <ol>
-  <li>No arquivo <code>.env</code> do projeto, configure as informações do banco de dados existente:</li>
+  <li>Abra o arquivo <code>.env</code> no diretório raiz do projeto.</li>
+  <li>Dentro do arquivo <code>.env</code>, encontre as seguintes variáveis de ambiente relacionadas ao banco de dados:</li>
 </ol>
 
-<pre><code>DB_CONNECTION=mysql
+<pre>
+<code>
+DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=seuBancoDeDados
-DB_USERNAME=seuUsuario
-DB_PASSWORD=suaSenha</code></pre>
+DB_DATABASE=nomeBanco
+DB_USERNAME=seu_usuario
+DB_PASSWORD=sua_senha
+</code>
+</pre>
 
-<p>Substitua <code>seuBancoDeDados</code>, <code>seuUsuario</code> e <code>suaSenha</code> pelas informações correspondentes ao seu banco de dados.</p>
+<p>Certifique-se de definir corretamente o nome do banco de dados (<code>DB_DATABASE</code>), nome de usuário (<code>DB_USERNAME</code>) e senha (<code>DB_PASSWORD</code>).</p>
 
-<h3>Opção 2: Banco de Dados Padrão</h3>
-
-<p>Se você deseja utilizar o banco de dados padrão do projeto, siga as etapas abaixo:</p>
-
-<ol>
-  <li>Antes de prosseguir com as migrações, mova o banco de dados de exemplo (<code>dev_jr</code>) localizado no diretório <code>database</code> para <code>C:\ProgramData\MySQL\MySQL Server 8.0\Data</code>. Isso permitirá que o Laravel acesse o banco de dados corretamente.</li>
-  <li>No arquivo <code>.env</code> do projeto, mantenha a configuração do banco de dados padrão trocando (somente se necessário) o nome de usuário e a senha(se houver):</li>
+<ol start="3">
+  <li>Salve o arquivo <code>.env</code> após fazer as alterações.</li>
 </ol>
 
-<pre><code>DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=dev_jr
-DB_USERNAME=root
-DB_PASSWORD=</code></pre>
+<p>Com as configurações do banco de dados definidas no arquivo <code>.env</code>, agora você pode executar as migrações para criar as tabelas necessárias.</p>
 
-<p>Ao utilizar o banco de dados padrão, não é necessário executar as migrações. O banco de dados já está pronto para uso.</p>
+<h2>Migrações</h2>
+
+<p>Para gerar a base de dados e as tabelas, execute o seguinte comando no terminal:</p>
+
+<pre>
+<code>
+php artisan migrate
+</code>
+</pre>
+
+<p>Isso executará as migrações definidas no diretório <code>database/migrations</code> e criará as tabelas necessárias para a API de Pedidos com Integração do IBGE.</p>
+
+<p>Certifique-se de ter as permissões adequadas para criar e modificar o banco de dados especificado nas configurações do <code>.env</code>.</p>
 
 <h2>Configuração das Migrações</h2>
 
