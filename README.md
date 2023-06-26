@@ -25,7 +25,7 @@
 <ol>
   <li>Faça o clone deste repositório para o seu ambiente local.</li>
   <li>Navegue até a pasta do projeto e execute o comando <code>composer install</code> para instalar as dependências.</li>
-  <li>Renomeie o arquivo <code>.env.example</code> para <code>.env</code> e configure as informações do banco de dados conforme a configuração presente na seção <a href="https://github.com/ItaloAzevedo/api-ibge-integration-laravel/README.md#configura%C3%A7%C3%A3o-do-banco-de-dados"><b>Configuração do Banco de dados</b></a></li>
+  <li>Renomeie o arquivo <code>.env.example</code> para <code>.env</code> e configure as informações do banco de dados conforme a configuração presente na seção <a href="#configuração-do-banco-de-dados"><b>Configuração do Banco de dados</b></a></li>
   <li>Execute o comando <code>php artisan key:generate</code> para gerar a chave da aplicação.</li>
   
 </ol>
